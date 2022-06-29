@@ -8,7 +8,7 @@
     if (money <= 15000) {
         tax = money * 0.13;
     }
-    else if (15000 < money >= 50000) {
+    else if (15000 < money <= 50000) {
         tax = money * 0.2;
     }
     else {
