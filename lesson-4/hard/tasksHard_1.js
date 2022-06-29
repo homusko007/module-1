@@ -5,15 +5,14 @@
     const money = +prompt('Какая ваша зарплата?');
     let tax;
 
-    if (money < 15000) {
-        tax = money * 0.15;
+    if (money <= 15000) {
+        tax = money * 0.13;
     }
-    else if (money >= 50000) {
-        tax = money * 0.3;
-    }
-    else {
+    else if (15000 < money >= 50000) {
         tax = money * 0.2;
     }
+    else {
+        tax = money * 0.3;
+    }
     console.log('Сумма налога: ' + tax);
-
 }
