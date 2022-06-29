@@ -39,7 +39,7 @@ else {
 {
     const money = +prompt('Какую сумму желаете снять');
         
-   if (money % 100 === 0) {
+   if (money % 100 === 0 && money !== 0) {
     console.log('Операия выполнена успешно!');
    }
     else {
