@@ -19,4 +19,4 @@ const getAveragePriceGoods = (arr) => {
      return sum / arr.length;
 }
 
-console.log("Средняя стоимость 1 товара: " + getAveragePriceGoods(cashbox).toFixed(2))
+console.log("Средняя стоимость 1 товара: " + Math.round(getAveragePriceGoods(cashbox)));
