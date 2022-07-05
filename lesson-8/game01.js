@@ -4,7 +4,7 @@ let input, random = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
 console.log(random);
 
 
-while (input = prompt("Введите число от 0 до 100:")) {
+while (input = prompt("Введите число от 1 до 100:")) {
     if (isNaN(input))
         alert("Введите число!");
     else if (input > random)
