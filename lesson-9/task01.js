@@ -22,6 +22,10 @@ const cart = {
         this.totalPrice = sum;
         return this.totalPrice;
     },
+
+    getTotalPrice() {
+        console.log(`'Общая стоимлсть всей корзины:' ${this.totalPrice}`);
+       },
     
     increaseCount(amount) {
         cart.count += amount;
@@ -34,9 +38,10 @@ const cart = {
     },
 
     print() {
-        const cartStr = JSON.stringify(cart);
+        const cartStr = JSON.stringify(items);
         const cartObj = JSON.parse(cartStr);
         console.log(cartObj);
+        this.getTotalPrice()            
     },
 }
 cart.add('ручка', 20, 1);
@@ -45,6 +50,8 @@ cart.add('тетрадь', 25, 15);
 cart.add('линейка', 10, 1);
 
 console.log(cart);
+
+cart.print()
 
 
 /*items.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
