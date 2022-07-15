@@ -29,13 +29,13 @@
         return computerChoice;
       };
 
-      const userChoise = prompt('rock, scissors, paper?').toLowerCase();
+      const userChoise = prompt('rock, scissors, paper?');
       if (figuresEng.includes(userChoise)) {
         console.log(userChoise);
 
         const computer = getComputerChoice();
         console.log(computer);
-        const user = userChoise;
+        const user = userChoise.toLowerCase();
 
         if (computer === 'rock' && user === 'paper' ||
                     computer === 'scissors' && user === 'rock' ||
@@ -61,10 +61,10 @@
         }
         if (confirm(`Сontinue the game?`)) {
         } else if (confirm(`Are you sure?`)) {
-
-        } else {
           alert(`${result} \nUser: ${userResult} Computer: ${computerResult}`);
           return;
+        } else {
+          startEng();
         }
         startEng();
       } else {
@@ -87,13 +87,13 @@
         return computerChoice;
       };
 
-      const userChoise = prompt('камень, ножницы, бумага?').toLowerCase();
+      const userChoise = prompt('камень, ножницы, бумага?');
       if (figuresRus.includes(userChoise)) {
         console.log(userChoise);
 
         const computer = getComputerChoice();
         console.log(computer);
-        const user = userChoise;
+        const user = userChoise.toLowerCase();
 
         if (computer === 'камень' && user === 'бумага' ||
                     computer === 'ножницы' && user === 'камень' ||
@@ -119,10 +119,10 @@
         }
         if (confirm(`Продолжить игру?`)) {
         } else if (confirm(`Вы уверены?`)) {
-
-        } else {
           alert(`${result} \nПользователь: ${userResult} Компьютер: ${computerResult}`);
           return;
+        } else {
+          startRus();
         }
         startRus();
       } else {
