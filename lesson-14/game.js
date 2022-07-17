@@ -134,7 +134,7 @@
       start();
     }
   }
-  window.marbl = start;
+   window.marbl = start();
 })();
 
 
