@@ -1,58 +1,50 @@
 'use strict';
 
-let items = [];
+function Cart() {
+    this.goods = [];
+    this.totalPrice = 0,
+    this.count = 0
+};
 
-const cart = {
-    items,
-    totalPrice: 0,
-    count: 0,
+Cart.prototype.add = function (item) {
+    this.goods.push(item);
+    this.calculateItemPrice(item);
+    this.increaseCount(item.amount);
+};
 
-    add(el, cost, amount) {
-        items.push({ product: el, price: cost, amount: amount, });
-        this.calculateItemPrice();
-        this.increaseCount(amount);
-    },
+Cart.prototype.calculateItemPrice = function () {
+    let sum = 0;
+    for (let i = 0; i < this.goods.length; i++) {
+        let elSum = this.goods[i].price * this.goods[i].amount;
+        sum += elSum;
+    }
+    this.totalPrice = sum;
+    return this.totalPrice;
+};
 
-    calculateItemPrice() {
-        let sum = 0;
-        for (let i = 0; i < this.items.length; i++) {
-            let elSum = this.items[i].price * this.items[i].amount;
-            sum += elSum;
-        }
-        this.totalPrice = sum;
-        return this.totalPrice;
-    },
+Cart.prototype.getTotalPrice = function () {
+    console.log(`'Общая стоимость всей корзины:' ${this.totalPrice}`);
+};
 
-    getTotalPrice() {
-        console.log(`'Общая стоимлсть всей корзины:' ${this.totalPrice}`);
-       },
-    
-    increaseCount(amount) {
-        cart.count += amount;
-    },
+Cart.prototype.increaseCount = function (amount) {
+    cart.count += amount;
+};
 
-    clear() {
-        cart.items = [];
-        cart.totalPrice = 0;
-        cart.count = 0;
-    },
+Cart.prototype.clear = function () {
+    cart.goods = [];
+    cart.totalPrice = 0;
+    cart.count = 0;
+};
 
-    print() {
-        const cartStr = JSON.stringify(items);
-        const cartObj = JSON.parse(cartStr);
-        console.log(cartObj);
-        this.getTotalPrice()            
-    },
-}
-cart.add('ручка', 20, 1);
-cart.add('карандаш', 15, 5);
-cart.add('тетрадь', 25, 15);
-cart.add('линейка', 10, 1);
+Cart.prototype.print = function () {
+    const cartStr = JSON.stringify(this.goods);
+    const cartObj = JSON.parse(cartStr);
+    console.log(cartObj);
+    this.getTotalPrice()
+};
 
-console.log(cart);
-
-cart.print()
-
-
-/*items.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
-        return summ;*/
+const cart = new Cart()
+cart.add(good1);
+cart.add(good2);
+cart.add(good3);
+cart.print();
